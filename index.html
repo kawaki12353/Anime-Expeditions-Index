@@ -143,25 +143,6 @@
             transform: scale(1.04);
         }
 
-        /* IDIOMA */
-        .lang-toggle {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-        }
-
-        .lang-toggle button {
-            background: var(--text);
-            color: var(--card);
-            padding: 8px 14px;
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
         /* MOBILE */
         @media (max-width: 480px) {
             body { padding: 20px 0; justify-content: flex-start; }
@@ -177,8 +158,8 @@
     <main class="container">
         <img src="assets/Anime-Expeditions-logo.png" class="logo" alt="Anime Expeditions Logo">
 
-        <p id="description"></p>
-        <p id="subDescription"></p>
+        <p id="description">Site criado com o objetivo de ajudar a todos os jogadores de Anime Expeditions no Roblox. Clique nas 3 barrinhas do canto esquerdo superior para acessar as funcionalidades da Wiki/Guia.</p>
+        <p id="subDescription">Abaixo está o link para o Discord Oficial do Anime Expeditions.</p>
 
         <a href="https://discord.gg/animeexpeditions" target="_blank" class="discord-btn">
             <img 
@@ -191,124 +172,58 @@
 
     <section class="faq-container">
         <h2 class="faq-title">FAQ</h2>
-        <div id="faqList"></div>
+        <div id="faqList">
+            <div class="faq-item">
+                <div class="faq-header">📘 - O que é este Site?</div>
+                <div class="faq-content"><p>Este site não-oficial foi criado para auxiliar os jogadores de Anime Expeditions, reunindo dados de Unidades, Habilidades, Dungeons, Itens e Expedições para toda a comunidade.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-header">📖 - O que encontro na database de Unidades?</div>
+                <div class="faq-content"><p>Na seção de Unidades você encontrará: Nome do Personagem (pesquisável pelo nome original, anime de origem ou raridade), Atributos, Passivas e as Habilidades de combate.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-header">📍 - Onde vejo os drops das Expedições e Dungeons?</div>
+                <div class="faq-content"><p>Os drops de itens, relíquias e summons estão detalhados na aba de Mapas/Expedições, indicando taxas de drop e pré-requisitos para cada fase.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-header">🎯 - Como obter as melhores Unidades do jogo?</div>
+                <div class="faq-content"><p>Personagens podem ser obtidos via Invocação (Summon System), fabricação com recursos de Expedição, recompensas de Raids ou eventos por tempo limitado.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-header">🔄 - O guia será atualizado?</div>
+                <div class="faq-content"><p>Sim, o guia é atualizado constantemente conforme o Anime Expeditions recebe novos patches e Personagens. A data da última alteração estará disponível no Update Log no menu.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-header">❓ - O que significa não achar uma Unidade/Item?</div>
+                <div class="faq-content"><p>Isso pode significar que o personagem/item é muito recente e a Wiki está sendo atualizada, ou que ele ainda não foi lançado oficialmente no jogo.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-header">🛠️ - Como posso ajudar a Wiki?</div>
+                <div class="faq-content"><p>Você pode nos ajudar reportando erros, enviando novos dados ou sugerindo melhorias através do Discord oficial do Anime Expeditions me contatando diretamente.</p></div>
+            </div>
+        </div>
     </section>
 
     <footer class="credits-container">
-        <h2 id="creditsTitle"></h2>
-        <p><strong id="creditsCreatorLabel"></strong><br><span id="creditsCreatorText"></span></p>
-        <p><strong id="creditsHelpersLabel"></strong><br><span id="creditsHelpersText"></span></p>
-        <p><strong id="creditsToolsLabel"></strong><br><span id="creditsToolsText"></span></p>
+        <h2>Créditos</h2>
+        <p><strong>Criador:</strong><br><span>Kawakizin – Discord (Kawaki1963)</span></p>
+        <p><strong>Ajudantes:</strong><br><span>Kyodaina - Discord (kyodaina0)</span></p>
+        <p><strong>Ferramentas de auxílio:</strong><br><span>IA • ibisPaint • Canva</span></p>
     </footer>
-
-    <div class="lang-toggle">
-        <button id="langBtn"></button>
-    </div>
 
     <script>
         const preloadDiscord = new Image();
         preloadDiscord.src = "assets/discordofficial_botton_on.png";
 
-        const texts = {
-            pt: {
-                description: "Site criado com o objetivo de ajudar a todos os jogadores de Anime Expeditions no Roblox. Clique nas 3 barrinhas do canto esquerdo superior para acessar as funcionalidades da Wiki/Guia.",
-                subDescription: "Abaixo está o link para o Discord Oficial do Anime Expeditions.",
-                langBtn: "🇧🇷 PT",
-                creditsTitle: "Créditos",
-                creditsCreatorLabel: "Criador:",
-                creditsCreatorText: "Kawakizin – Discord (Kawaki1963)",
-                creditsHelpersLabel: "Ajudantes:",
-                creditsHelpersText: "Kyodaina - Discord (kyodaina0)",
-                creditsToolsLabel: "Ferramentas de auxílio:",
-                creditsToolsText: "IA • ibisPaint • Canva",
-                faq: [
-                    { h: "📘 - O que é este Site?", c: "Este site não-oficial foi criado para auxiliar os jogadores de Anime Expeditions, reunindo dados de Unidades, Habilidades, Dungeons, Itens e Expedições para toda a comunidade." },
-                    { h: "📖 - O que encontro na database de Unidades?", c: "Na seção de Unidades você encontrará: Nome do Personagem (pesquisável pelo nome original, anime de origem ou raridade), Atributos, Passivas e as Habilidades de combate." },
-                    { h: "📍 - Onde vejo os drops das Expedições e Dungeons?", c: "Os drops de itens, relíquias e summons estão detalhados na aba de Mapas/Expedições, indicando taxas de drop e pré-requisitos para cada fase." },
-                    { h: "🎯 - Como obter as melhores Unidades do jogo?", c: "Personagens podem ser obtidos via Invocação (Summon System), fabricação com recursos de Expedição, recompensas de Raids ou eventos por tempo limitado." },
-                    { h: "🔄 - O guia será atualizado?", c: "Sim, o guia é atualizado constantemente conforme o Anime Expeditions recebe novos patches e Personagens. A data da última alteração estará disponível no Update Log no menu." },
-                    { h: "❓ - O que significa não achar uma Unidade/Item?", c: "Isso pode significar que o personagem/item é muito recente e a Wiki está sendo atualizada, ou que ele ainda não foi lançado oficialmente no jogo." },
-                    { h: "🛠️ - Como posso ajudar a Wiki?", c: "Você pode nos ajudar reportando erros, enviando novos dados ou sugerindo melhorias através do Discord oficial do Anime Expeditions me contatando diretamente." }
-                ]
-            },
-            en: {
-                description: "Site created to help all Anime Expeditions players on Roblox. Click on the three bars in the upper left corner to navigate through the Wiki/Guide features.",
-                subDescription: "Below is the link to the official Anime Expeditions Discord server.",
-                langBtn: "🇺🇸 EN",
-                creditsTitle: "Credits",
-                creditsCreatorLabel: "Creator:",
-                creditsCreatorText: "Kawakizin – Discord (Kawaki1963)",
-                creditsHelpersLabel: "Helpers:",
-                creditsHelpersText: "Kyodaina - Discord (kyodaina0)",
-                creditsToolsLabel: "Support tools:",
-                creditsToolsText: "AI • ibisPaint • Canva",
-                faq: [
-                    { h: "📘 - What is this Site?", c: "This unofficial site was created to assist Anime Expeditions players, providing comprehensive information about Units, Skills, Dungeons, Items, and Expeditions." },
-                    { h: "📖 - What can I find in the Units Database?", c: "In the Units section you will find: Character Name (searchable by original name, anime series, or rarity), Stats, Passives, and Skill sets." },
-                    { h: "📍 - Where can I see Expedition & Dungeon drops?", c: "Item drops, relics, and summons are detailed on each Expedition map page, listing drop rates and prerequisites for every stage." },
-                    { h: "🎯 - How do I obtain top-tier Units?", c: "Units can be obtained via the Summon System, crafting with Expedition materials, Raid rewards, or limited-time events." },
-                    { h: "🔄 - Will the guide be updated?", c: "Yes, the guide is updated regularly following Anime Expeditions patches and updates. You can check the latest update date in the Update Log menu." },
-                    { h: "❓ - What if I can't find a Unit or Item?", c: "This usually means the character/item was released recently and is being added, or it hasn't been implemented in the game yet." },
-                    { h: "🛠️ - How can I contribute?", c: "You can help by reporting bugs, suggesting changes, or providing missing information by joining the official Anime Expeditions Discord." }
-                ]
-            }
-        };
-
-        let lang = localStorage.getItem("siteLang") || "pt";
-
-        // Cria a estrutura do FAQ apenas uma vez
-        function renderFAQ() {
-            const faqList = document.getElementById("faqList");
-            faqList.innerHTML = "";
-            texts[lang].faq.forEach((item, index) => {
-                const div = document.createElement("div");
-                div.className = "faq-item";
-                div.innerHTML = `
-                    <div class="faq-header">${item.h}</div>
-                    <div class="faq-content"><p>${item.c}</p></div>
-                `;
-                div.querySelector(".faq-header").onclick = () => {
-                    const isActive = div.classList.contains("active");
-                    document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("active"));
-                    if (!isActive) div.classList.add("active");
-                };
-                faqList.appendChild(div);
-            });
-        }
-
-        // Atualiza os textos dinamicamente
-        function updateLang() {
-            const t = texts[lang];
-            document.getElementById("description").textContent = t.description;
-            document.getElementById("subDescription").textContent = t.subDescription;
-            document.getElementById("langBtn").textContent = t.langBtn;
-            document.getElementById("creditsTitle").textContent = t.creditsTitle;
-            document.getElementById("creditsCreatorLabel").textContent = t.creditsCreatorLabel;
-            document.getElementById("creditsCreatorText").textContent = t.creditsCreatorText;
-            document.getElementById("creditsHelpersLabel").textContent = t.creditsHelpersLabel;
-            document.getElementById("creditsHelpersText").textContent = t.creditsHelpersText;
-            document.getElementById("creditsToolsLabel").textContent = t.creditsToolsLabel;
-            document.getElementById("creditsToolsText").textContent = t.creditsToolsText;
-
-            const faqItems = document.querySelectorAll(".faq-item");
-            if (faqItems.length === 0) {
-                renderFAQ();
-            } else {
-                t.faq.forEach((item, index) => {
-                    if (faqItems[index]) {
-                        faqItems[index].querySelector(".faq-header").textContent = item.h;
-                        faqItems[index].querySelector(".faq-content p").textContent = item.c;
-                    }
-                });
-            }
-        }
-
-        document.getElementById("langBtn").onclick = () => {
-            lang = lang === "pt" ? "en" : "pt";
-            localStorage.setItem("siteLang", lang);
-            updateLang();
-            if (typeof updateMenuLang === "function") updateMenuLang();
-        };
+        // Lógica de sanfona (accordion) do FAQ
+        document.querySelectorAll(".faq-header").forEach(header => {
+            header.onclick = () => {
+                const item = header.parentElement;
+                const isActive = item.classList.contains("active");
+                document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("active"));
+                if (!isActive) item.classList.add("active");
+            };
+        });
 
         // Lógica de Hover do Botão Discord
         const discordImg = document.querySelector(".discord-img");
@@ -321,11 +236,7 @@
         discordImg.addEventListener("mouseleave", () => setDiscordImg(originalSrc));
         discordImg.addEventListener("touchstart", () => setDiscordImg(hoverSrc));
         discordImg.addEventListener("touchend", () => setDiscordImg(originalSrc));
-
-        // Inicialização
-        updateLang();
     </script>
 
 </body>
 </html>
-

@@ -9,10 +9,6 @@ fetch("menu.html")
   })
   .catch(err => console.error("Erro ao carregar o menu:", err));
 
-function getLang() {
-  return localStorage.getItem("siteLang") || "pt";
-}
-
 function initMenu() {
   const openMenu  = document.getElementById("openMenu");
   const closeMenu = document.getElementById("closeMenu");
@@ -45,7 +41,6 @@ function initMenu() {
   }
 
   setActivePage();
-  window.updateMenuLang(); // Traduz assim que carrega
 }
 
 /* MARCA PÁGINA ATUAL */
@@ -53,7 +48,7 @@ function setActivePage() {
   // Pega o nome do arquivo atual (ex: index.html)
   const current = location.pathname.split("/").pop() || "index.html";
 
-  // Mapeamento dos IDs dos links (o logotipo não entra aqui pois não é mais um link)
+  // Mapeamento dos IDs dos links
   const pages = {
     "index.html": "menuHome",
     "units.html": "menuUnits",
@@ -73,57 +68,3 @@ function setActivePage() {
     if (activeElement) activeElement.classList.add("active");
   }
 }
-
-/* TRADUÇÃO DO MENU */
-window.updateMenuLang = function() {
-  const lang = getLang();
-
-  const text = {
-    pt: {
-      home: "Início",
-      units: "Units",
-      tierList: "Tier List",
-      guia: "Guia",
-      equipamentos: "Equipamentos",
-      effects: "Effects",
-      modifiers: "Modifiers",
-      update: "Update-Log"
-    },
-    en: {
-      home: "Home",
-      units: "Units",
-      tierList: "Tier List",
-      guia: "Guide",
-      equipamentos: "Equipment",
-      effects: "Effects",
-      modifiers: "Modifiers",
-      update: "Update-Log"
-    }
-  };
-
-  const mapping = {
-    "menuHome": "home",
-    "menuUnits": "units",
-    "menuTierList": "tierList",
-    "menuGuia": "guia",
-    "menuEquipamentos": "equipamentos",
-    "menuEffects": "effects",
-    "menuModifiers": "modifiers",
-    "menuUpdate": "update"
-  };
-
-  for (let id in mapping) {
-    const element = document.getElementById(id);
-    if (element) {
-      // Mantém a estrutura de texto baseada no idioma selecionado
-      element.innerHTML = text[lang][mapping[id]];
-    }
-  }
-};
-
-// Escuta mudanças no localStorage para trocar o idioma em tempo real
-window.addEventListener('storage', (e) => {
-  if (e.key === 'siteLang') {
-    window.updateMenuLang();
-  }
-});

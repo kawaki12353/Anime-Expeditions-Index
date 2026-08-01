@@ -56,11 +56,12 @@ function setActivePage() {
   // Mapeamento dos IDs dos links (o logotipo não entra aqui pois não é mais um link)
   const pages = {
     "index.html": "menuHome",
-    "moves.html": "menuMoves",
-    "calculator.html": "menuCalc",
-    "items.html": "menuItems",
-    "maps.html": "menuMaps",
-    "trainer.html": "menuTrainers",
+    "units.html": "menuUnits",
+    "tier-list.html": "menuTierList",
+    "guia.html": "menuGuia",
+    "equipamentos.html": "menuEquipamentos",
+    "effects.html": "menuEffects",
+    "modifiers.html": "menuModifiers",
     "update-log.html": "menuUpdate"
   };
 
@@ -79,39 +80,42 @@ window.updateMenuLang = function() {
 
   const text = {
     pt: {
-      home: "🏠 Início",
-      moves: "⚔️ Lista de Moves",
-      calc: "🔥 Calculadora",
-      items: "🗂 Itens",
-      maps: "🗺 Mapas",
-      trainers: "🤵‍♂️ Treinadores",
-      update: "📝 Update Log"
+      home: "Início",
+      units: "Units",
+      tierList: "Tier List",
+      guia: "Guia",
+      equipamentos: "Equipamentos",
+      effects: "Effects",
+      modifiers: "Modifiers",
+      update: "Update-Log"
     },
     en: {
-      home: "🏠 Home",
-      moves: "⚔️ Moves List",
-      calc: "🔥 Calculator",
-      items: "🗂 Items",
-      maps: "🗺 Maps",
-      trainers: "🤵‍♂️ Trainers",
-      update: "📝 Update Log"
+      home: "Home",
+      units: "Units",
+      tierList: "Tier List",
+      guia: "Guide",
+      equipamentos: "Equipment",
+      effects: "Effects",
+      modifiers: "Modifiers",
+      update: "Update-Log"
     }
   };
 
   const mapping = {
     "menuHome": "home",
-    "menuMoves": "moves",
-    "menuCalc": "calc",
-    "menuItems": "items",
-    "menuMaps": "maps",
-    "menuTrainers": "trainers",
+    "menuUnits": "units",
+    "menuTierList": "tierList",
+    "menuGuia": "guia",
+    "menuEquipamentos": "equipamentos",
+    "menuEffects": "effects",
+    "menuModifiers": "modifiers",
     "menuUpdate": "update"
   };
 
   for (let id in mapping) {
     const element = document.getElementById(id);
     if (element) {
-      // Mantém a estrutura de ícones e texto baseada no idioma selecionado
+      // Mantém a estrutura de texto baseada no idioma selecionado
       element.innerHTML = text[lang][mapping[id]];
     }
   }
